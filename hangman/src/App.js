@@ -3,6 +3,7 @@ import Solution from './Components/Solution'
 import './App.css';
 import Score from './Components/Score';
 import Letters from './Components/Letters';
+import EndGame from './Components/EndGame';
 
 class App extends Component {
   constructor() {
@@ -33,7 +34,7 @@ class App extends Component {
     let wrongLetter = this.state.score - 10
     let secretWord = this.state.solution.word.toUpperCase().split('')
     let found = secretWord.find(f => f === letter)
-    if (!found) {
+    if (!found && this.state.score > 0) {
       this.setState({ score: wrongLetter })
 
     }
@@ -45,8 +46,9 @@ class App extends Component {
     return (
       <div>
         <Score score={this.state.score} />
-        <Solution letterStatus={this.state.letterStatus} solution={this.state.solution} />
+        <Solution letterStatus={this.state.letterStatus} solution={this.state.solution} score={this.state.score}/>
         <Letters letterStatus={this.state.letterStatus} method={this.selectLetter} scoreMethod={this.updateScore} />
+        <EndGame score={this.state.score} />
       </div>
     );
   }
