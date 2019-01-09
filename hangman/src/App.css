@@ -34,5 +34,65 @@
 .true{
   color: gray;
   text-decoration: line-through;
+  font-size: 16px;
+  margin-bottom: 20px;
+
  
+}
+
+.game-over{
+  color: red;
+  font-size: 40px;
+}
+
+.highScore{
+  color: green;
+}
+
+.lowScore{
+  color:red;
+}
+body{
+  font-family: serif;
+  text-align: center;
+}
+.hint{
+  color: blue;
+  font-family: cursive;
+}
+
+.availLet{
+  font-size: 30px;
+}
+
+.game{
+
+  background-color: antiquewhite;
+  width: auto;
+  height: 100vh;
+  font-size: 16px;
+}
+.scoreDiv{
+  margin-bottom: 20px;
+}
+h1{
+  font-family: fantasy;
+}
+.letterDiv{
+  margin-bottom: 20px;
+
+}
+.letters{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.titleLetters{
+  margin-bottom: 20px;
+
+}
+.space{
+  margin-top: 100px;
+
 }

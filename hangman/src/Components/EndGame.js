@@ -5,7 +5,7 @@ class EndGame extends Component {
 
         return (
             <div>
-                {this.props.score === 0 ? <div>Game over!</div> : null}
+                {this.props.score === 0 ? <div className="game-over">Game over!</div> : null}
             </div>
         )
     }
