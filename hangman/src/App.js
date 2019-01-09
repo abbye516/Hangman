@@ -13,7 +13,7 @@ class App extends Component {
         word: "cat",
         hint: "An animal"
       },
-      score: 0
+      score: 100
     }
   }
   generateLetterStatuses() {
@@ -23,13 +23,30 @@ class App extends Component {
     }
     return letterStatus
   }
+  selectLetter = (letter) => {
+    let newLetterStatus = { ...this.state.letterStatus }
+    newLetterStatus[letter] = true
+    this.setState({ letterStatus: newLetterStatus })
+
+  }
+  updateScore = (letter) => {
+    let wrongLetter = this.state.score - 10
+    let secretWord = this.state.solution.word.toUpperCase().split('')
+    let found = secretWord.find(f => f === letter)
+    if (!found) {
+      this.setState({ score: wrongLetter })
+
+    }
+  }
+
+
 
   render() {
     return (
       <div>
-        <Score score = {this.state.score}/>
+        <Score score={this.state.score} />
         <Solution letterStatus={this.state.letterStatus} solution={this.state.solution} />
-        <Letters letterStatus={this.state.letterStatus} />
+        <Letters letterStatus={this.state.letterStatus} method={this.selectLetter} scoreMethod={this.updateScore} />
       </div>
     );
   }
